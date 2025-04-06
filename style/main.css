@@ -1,0 +1,18 @@
+html {
+    font-family: 'vazir';
+    
+}
+
+@keyframes wave {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .text-wave {
+
+    animation: wave 2s infinite ease-in-out;
+  }
+  
