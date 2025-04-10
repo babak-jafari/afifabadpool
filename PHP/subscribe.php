@@ -1,26 +1,6 @@
 <?php
 require_once 'db.php';
-
-// کلاس پیام‌ها
-class ErroreMessage {
-    private $error = [];
-
-    public function set($field, $message) {
-        $this->error[$field][] = $message;
-    }
-
-    public function count(){
-        return count($this->error);
-    }
-
-    public function has($field){
-        return isset($this->error[$field]);
-    }
-
-    public function first($field){
-        return $this->error[$field][0] ?? null;
-    }
-}
+require_once 'message.php';  // اضافه کردن کلاس پیام
 
 // کلاس ثبت در خبرنامه
 class NewsLetters extends DB {
@@ -47,7 +27,7 @@ class NewsLetters extends DB {
 
 // پردازش فرم و ثبت شماره
 function processSubscription($number) {
-    $message = new ErroreMessage();
+    $message = new ErrorMessage();
 
     if (!$number || strlen($number) != 11 || !preg_match('/^09[0-9]{9}$/', $number)) {
         $message->set("num", "❌ شماره تماس نامعتبر است.");

@@ -16,25 +16,7 @@ session_start();
     <link rel="stylesheet" href="./style/src/output.css">
     <link rel="shortcut icon" href="/afifabadpool/img/favicon-32x32.png" type="image/x-icon">
     <title>استخر عفیف آباد</title>
-    <style>
-            #toast {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1e96ff; 
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-            z-index: 1000;
-        }
-        #toast.show {
-            opacity: 1;
-        }
-    </style>
+    
 
    
 
@@ -212,14 +194,17 @@ session_start();
 <div class="flex flex-col items-center gap-4 p-6">
     <h2 class="font-bold text-3xl text-gray-700">استخر عفیف‌آباد</h2>
     <span class="text-gray-700">مجموعه عفیف‌آباد، تلفیقی از آرامش، سلامت و خدمات حرفه‌ای در محیطی مدرن و دل‌نشین است.</span>
-    <button class=" hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl">مشاهده سانس ها</button>
+    <button id="sessionsbutton" class=" hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl">مشاهده سانس ها</button>
     <video class="w-full" src="" controls ></video>
 </div>
 
 <!--  -->
 
-<div class="fixed hidden  inset-0 items-center justify-center z-50 ">
+<div id="sessionsform" class="fixed inset-0 items-center justify-center z-50 hidden">
   <div class="bg-amber-400  p-6 rounded-lg w-full max-w-md relative flex flex-col gap-2 items-center">
+    <button id="closesessions" class="absolute top-2 right-2 text-gray-800 hover:text-black">
+      ✖
+    </button>
     <h1>گزینه مورد نظر را انتخاب کنید</h1>
     <button class=" hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl">سانس های آموزشی</button>
   
@@ -230,15 +215,15 @@ session_start();
 <!-- login form -->
   
   <!-- بک‌گراند تیره و فرم -->
-  <div id="loginform" class="fixed inset-0 items-center justify-center z-50 hidden ">
+  <!-- <div id="loginform" class="fixed inset-0 items-center justify-center z-50 hidden ">
     <div class="shadow-2xl bg-[#b5e3ff]/40  backdrop-blur-md   p-6 rounded-lg w-full max-w-md relative">
-      
+       -->
       <!-- دکمه بستن -->
-      <button id="closelogin" class="absolute top-2 right-2 text-gray-800 hover:text-black">
+      <!-- <button id="closelogin" class="absolute top-2 right-2 text-gray-800 hover:text-black">
         ✖
       </button>
-  
-      <!-- فرم -->
+   -->
+      <!-- فرم
       <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ورود به حساب</h2>
       <form>
         <input type="text" placeholder="شماره موبایل" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600  w-full  p-2 rounded mb-3" />
@@ -252,8 +237,49 @@ session_start();
       </button>
       
     </div>
+  </div> -->
+  <!--sign up form -->
+
+  <!-- بک‌گراند تیره و فرم ورود -->
+<div id="loginform" class="fixed inset-0 items-center justify-center z-50 hidden">
+  <div class="shadow-2xl bg-[#b5e3ff]/40 backdrop-blur-md p-6 rounded-lg w-full max-w-md relative">
+    
+    <button id="closelogin" class="absolute top-2 right-2 text-gray-800 hover:text-black">
+      ✖
+    </button>
+
+    <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ورود به حساب</h2>
+    <form id="login-form" action="./php/login.php" method="POST">
+      <input id="phone-email" name="email_or_phone" type="text" placeholder="ایمیل یا شماره موبایل" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600  w-full  p-2 rounded mb-3" />
+      <input id="password" name="password" type="password" placeholder="رمز عبور" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600  w-full  p-2 rounded mb-3" />
+      <button type="submit" class="bg-[#0675ff] text-white w-full p-2 rounded">ورود</button>
+    </form> 
+    <br><hr class="text-white"><br>
+    <button type="button" class="w-full flex items-center justify-center gap-2 border border-gray-300 hover:bg-white bg-white/60 text-gray-700 font-semibold py-2 px-4 rounded mb-4 ">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5" />
+      ورود با حساب گوگل
+    </button>
+    
+    <button id="signup-btn" class="w-full bg-green-500 text-white p-2 rounded mt-3">عضویت</button>
   </div>
-  
+</div>
+
+<!-- فرم ثبت‌نام پاپ‌آپ -->
+<div id="signupform" class="fixed inset-0 items-center justify-center z-50 hidden">
+  <div class="shadow-2xl bg-[#b5e3ff]/40 backdrop-blur-md p-6 rounded-lg w-full max-w-md relative">
+    
+    <button id="closeregister" class="absolute top-2 right-2 text-gray-800 hover:text-black">
+      ✖
+    </button>
+
+    <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ثبت‌نام</h2>
+    <form id="signup-form" action="./php/user.php" method="POST">
+      <input id="register-phone-email" name="email_or_phone" type="text" placeholder="ایمیل یا شماره موبایل" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600  w-full  p-2 rounded mb-3" />
+      <input id="register-password" name="password" type="password" placeholder="رمز عبور" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600  w-full  p-2 rounded mb-3" />
+      <button type="submit" class="bg-[#0675ff] text-white w-full p-2 rounded">ثبت‌نام</button>
+    </form>
+  </div>
+</div>
 
 <!-- footer -->
 <footer class="flex flex-col items-center bg-[#084ac5] text-white">
@@ -305,26 +331,10 @@ session_start();
 </footer>
  
     <!-- JS -->
-    <script src="./script/script.js"></script>
-    <script>
-        // وقتی صفحه لود شد
-        document.addEventListener('DOMContentLoaded', function() {
-            var toast = document.getElementById('toast');
-            if (toast) {
-                // نمایش توتیف
-                toast.classList.add('show');
+    <script src="./script/js.js" ></script>
+    
+  
 
-
-                // مخفی کردن بعد از 5 ثانیه
-                setTimeout(function() {
-                    toast.classList.remove('show'); // محو شدن
-                    setTimeout(function() {
-                        toast.remove(); // حذف از DOM بعد از انیمیشن
-                    }, 500); // هم‌زمان با مدت transition
-                }, 2000); // 5 ثانیه نمایش
-            }
-        });
-    </script>
     
 </body>
 </html>
