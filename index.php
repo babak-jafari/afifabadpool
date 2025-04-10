@@ -1,3 +1,10 @@
+<?php
+session_start();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
@@ -7,8 +14,29 @@
     <link rel="stylesheet" href="./style/vazir-font-face.css">
     <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="./style/src/output.css">
-    <link rel="icon" href="/img/favicon_io/favicon-16x16.png" type="image/png">
+    <link rel="shortcut icon" href="/afifabadpool/img/favicon-32x32.png" type="image/x-icon">
     <title>استخر عفیف آباد</title>
+    <style>
+            #toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1e96ff; 
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 1000;
+        }
+        #toast.show {
+            opacity: 1;
+        }
+    </style>
+
+   
 
 </head>
 
@@ -46,15 +74,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>راه های ارتباطی</a></li>
             </ul>
-            <button class="flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-            </svg>خرید بلیط</button>
+            <button class="login flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>ورود به سامانه</button>
         </div>
     </div>
 <!-- descktop menu -->
     <div> 
         <!-- burger menu -->
-        <div class="flex justify-between   lg:justify-center items-center bg-white p-4 shadow-xl">
+        <div id="navbar" class="flex justify-between   lg:justify-center items-center bg-white p-4 shadow-xl">
             <button id="sidebar-open-icon" class="block lg:hidden px-6 ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9 hover:text-[#48b9ff] duration-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -62,7 +90,7 @@
             </button>
             <!-- LOGO -->
             <div class="pr-20 lg:p-0   flex justify-center">
-                <a href=""><img src="/img/لوگو.png" width="100rem" alt="logo"></a>
+                <a href=""><img src="/afifabadpool/img/logo.png" width="100rem" alt="logo"></a>
             </div>
             <div>
                 <ul class="hidden lg:flex px-6 gap-4 ">
@@ -87,9 +115,9 @@
                 </ul>
             </div>
             <div class="  ">
-                <button class=" hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>خرید بلیط</button>
+                <button class="login hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>ورود به سامانه</button>
             </div>
         </div>    
     </div>
@@ -99,65 +127,79 @@
             <h1 class="text-wave inline-block bg-gradient-to-l from-[#0675ff] to-[#0e295d] bg-clip-text text-transparent font-bold text-2xl lg:text-3xl">مجموعه تفریحی ورزشی عفیف آباد</h1>
             <span class="leading-7 mx-2 text-gray-700">استخر عفیف‌آباد یک مجموعه‌ی آبی نوساز، تمیز و بسیار مجهز واقع در باغ عفیف‌آباد است. این مجموعه شامل استخر، سونا، جکوزی، حمام نمک، ماساژ و حمام ترکی می‌باشد. فضایی آرام و بهداشتی برای یک تجربه‌ی کامل از آرامش و سلامت فراهم شده است.</span>
             <div>
-                <input class="placeholder:text-gray-300 placeholder:font-thin placeholder:text-lg border-b border-white " type="text" name="" id="" placeholder="09XXXXX6789">
-                <button class=" hover:bg-[#48b9ff] duration-200  justify-center items-center bg-white text-gray-600  p-3 w-25 rounded-xl">عضویت</button>
+              <!-- <form id="newsletter-form">
+                <input id="phone-number" name="number" class="placeholder:text-gray-300 caret-white focus:outline-none text-gray-700 text-lg font-thin placeholder:font-thin placeholder:text-lg border-b border-white" type="text" placeholder="09XXXXX6789">
+                <button type="submit" class="hover:bg-[#48b9ff] duration-200 justify-center items-center bg-white text-gray-600 p-3 w-25 rounded-xl">عضویت</button>
+                <div id="result"></div>
+              </form> -->
+              <form action="./php/subscribe.php" method="POST">
+                <input id="phone-number" name="number" class="placeholder:text-gray-300 caret-white focus:outline-none text-gray-700 text-lg font-thin placeholder:font-thin placeholder:text-lg border-b border-white" type="text" placeholder="09XXXXX6789">
+                <button type="submit" class="hover:bg-[#48b9ff] duration-200 justify-center items-center bg-white text-gray-600 p-3 w-25 rounded-xl">عضویت</button>
+                <?php 
+    // نمایش پیام توتیف اگه توی سشن باشه
+    if (isset($_SESSION['message'])) {
+        echo "<div id='toast' >" . $_SESSION['message'] . "</div>";
+        unset($_SESSION['message']); // حذف پیام از سشن
+    }
+    ?>
+
+              </form>
+        
+
+
             </div>    
-            <button class=" hover:bg-[#48b9ff] duration-200  justify-center items-center bg-[#0675ff] text-white p-3 w-70 rounded-xl">راه های ارتباطی</button>
+                <button class="flex  w-70 gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
+                </svg>خرید بلیت</button>
         </div>
  
         <div class="w-1/2 hidden md:block">
-            <img class="w-full" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="" >
+            <img class="w-full" src="/afifabadpool/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="" >
         </div>
     </div>
 <!-- services -->
 <div class="flex flex-col items-center">
     <h2 class="font-bold text-2xl text-gray-700 p-4">امکانات مجموعه</h2>
-    <div class="grid grid-cols-3 md:grid-cols-3 gap-6 p-6">
+    <div class="grid grid-cols-3 md:grid-cols-3 gap-6 p-6 lg:px-20 xl:px-40  ">
 
         <!-- اتاق ماساژ -->
         <div class="md:bg-white md:shadow-lg p-4 md:rounded-xl transition-transform duration-300 md:hover:scale-105">
-          <img class="hidden md:block w-full h-48 object-cover rounded-md" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="">
-          <img class="block md:hidden mx-auto w-15" src="/img/food-2.svg" alt="">
+          <img class="block mx-auto w-25 " src="/afifabadpool/img/massage.png" alt="">
           <h3 class="text-lg md:font-semibold mt-4 text-center">اتاق ماساژ</h3>
           <p class="hidden md:block mt-2 text-gray-700 text-justify">ماساژ در محیطی آرام با روغن‌های مخصوص و پرسنل مجرب انجام می‌شود و باعث کاهش استرس و خستگی بدن می‌گردد.</p>
         </div>
       
         <!-- اتاق نمک -->
         <div class="md:bg-white md:shadow-lg p-4 md:rounded-xl transition-transform duration-300 md:hover:scale-105">
-          <img class="hidden md:block w-full h-48 object-cover rounded-md" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="">
-          <img class="block md:hidden mx-auto w-15" src="/img/food-2.svg" alt="">
+          <img class="block mx-auto w-25 " src="/afifabadpool/img/saltroom.png" alt="">
           <h3 class="text-lg md:font-semibold mt-4 text-center">اتاق نمک</h3>
           <p class="hidden md:block mt-2 text-gray-700 text-justify">اتاق نمک با طراحی خاص و خواص درمانی به بهبود تنفس و آرامش ذهن کمک می‌کند.</p>
         </div>
       
         <!-- استخر کودک -->
         <div class="md:bg-white md:shadow-lg p-4 md:rounded-xl transition-transform duration-300 md:hover:scale-105">
-          <img class="hidden md:block w-full h-48 object-cover rounded-md" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="">
-          <img class="block md:hidden mx-auto w-15" src="/img/food-2.svg" alt="">
+          <img class="block mx-auto w-25 " src="/afifabadpool/img/kidspool.png" alt="">
           <h3 class="text-lg md:font-semibold mt-4 text-center">استخر کودک</h3>
           <p class="hidden md:block mt-2 text-gray-700 text-justify">استخر کودک با عمق مناسب و نظارت کامل، محیطی امن و سرگرم‌کننده برای کودکان فراهم کرده است.</p>
         </div>
       
         <!-- حمام ترکی -->
         <div class="md:bg-white md:shadow-lg p-4 md:rounded-xl transition-transform duration-300 md:hover:scale-105">
-          <img class="hidden md:block w-full h-48 object-cover rounded-md" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="">
-          <img class="block md:hidden mx-auto w-15" src="/img/food-2.svg" alt="">
+          <img class="block mx-auto w-25 " src="/afifabadpool/img/bath.png" alt="">
           <h3 class="text-lg md:font-semibold mt-4 text-center">حمام ترکی</h3>
           <p class="hidden md:block mt-2 text-gray-700 text-justify">حمام ترکی با فضای گرم و سنتی خود، برای پاک‌سازی بدن و ایجاد آرامش کامل مناسب است.</p>
         </div>
       
         <!-- فروشگاه -->
         <div class="md:bg-white md:shadow-lg p-4 md:rounded-xl transition-transform duration-300 md:hover:scale-105">
-          <img class="hidden md:block w-full h-48 object-cover rounded-md" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="">
-          <img class="block md:hidden mx-auto w-15" src="/img/food-2.svg" alt="">
+          <img class="block mx-auto md w-25 " src="/afifabadpool/img/shop.png" alt="">
           <h3 class="text-lg md:font-semibold mt-4 text-center">فروشگاه</h3>
           <p class="hidden md:block mt-2 text-gray-700 text-justify">فروشگاه مجموعه انواع محصولات بهداشتی، ورزشی و خوراکی را با کیفیت عالی عرضه می‌کند.</p>
         </div>
       
         <!-- کافی‌شاپ -->
         <div class="md:bg-white md:shadow-lg p-4 md:rounded-xl transition-transform duration-300 md:hover:scale-105">
-          <img class="hidden md:block w-full h-48 object-cover rounded-md" src="/img/ChatGPT Image Apr 6, 2025 at 08_38_49 PM.png" alt="">
-          <img class="block md:hidden mx-auto w-15" src="/img/food-2.svg" alt="">
+          <img class="block mx-auto w-25 " src="/afifabadpool/img/coffeshop.png" alt="">
           <h3 class="text-lg md:font-semibold mt-4 text-center">کافی‌شاپ</h3>
           <p class="hidden md:block mt-2 text-gray-700 text-justify">کافی‌شاپ مجموعه با دمنوش‌های سنتی و نوشیدنی‌های گرم، فضایی دل‌نشین برای استراحت فراهم کرده است.</p>
         </div>
@@ -174,12 +216,115 @@
     <video class="w-full" src="" controls ></video>
 </div>
 
-<!-- article -->
-<div>
+<!--  -->
 
-</div>
-    
+<div class="fixed hidden  inset-0 items-center justify-center z-50 ">
+  <div class="bg-amber-400  p-6 rounded-lg w-full max-w-md relative flex flex-col gap-2 items-center">
+    <h1>گزینه مورد نظر را انتخاب کنید</h1>
+    <button class=" hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl">سانس های آموزشی</button>
+  
+    <button class=" hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl">سانس های عمومی</button>
+  </div>
+</div>  
+
+<!-- login form -->
+  
+  <!-- بک‌گراند تیره و فرم -->
+  <div id="loginform" class="fixed inset-0 items-center justify-center z-50 hidden ">
+    <div class="shadow-2xl bg-[#b5e3ff]/40  backdrop-blur-md   p-6 rounded-lg w-full max-w-md relative">
+      
+      <!-- دکمه بستن -->
+      <button id="closelogin" class="absolute top-2 right-2 text-gray-800 hover:text-black">
+        ✖
+      </button>
+  
+      <!-- فرم -->
+      <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ورود به حساب</h2>
+      <form>
+        <input type="text" placeholder="شماره موبایل" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600  w-full  p-2 rounded mb-3" />
+        <input type="password" placeholder="رمز عبور" class="caret-text-gray-600 focus:outline-none border-0 bg-white/40 placeholder:text-gray-600 w-full p-2 rounded mb-3" />
+        <button type="submit" class="hover:bg-[#48b9ff] duration-200  bg-[#0675ff] text-white w-full p-2 rounded">ورود</button>
+      </form>
+      <br><hr class="text-white"><br> 
+      <button type="button" class="w-full flex items-center justify-center gap-2 border border-gray-300 hover:bg-white bg-white/60 text-gray-700 font-semibold py-2 px-4 rounded mb-4">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5" />
+        ورود با حساب گوگل
+      </button>
+      
+    </div>
+  </div>
+  
+
+<!-- footer -->
+<footer class="flex flex-col items-center bg-[#084ac5] text-white">
+    <div>
+        <ul class="flex items-center p-6 gap-3 text-sm font-light md:text-lg md:font-normal md:gap-6  "> 
+            <li><a class="flex flex-col justify-center items-center hover:text-[#b5e3ff] " href="">صفحه اصلی</a></li>
+            <li><a class="flex flex-col justify-center items-center hover:text-[#b5e3ff] " href="">خدمات مجموعه</a></li>
+            <li><a class="flex flex-col justify-center items-center hover:text-[#b5e3ff] " href="">آموزش شنا</a></li>
+            <li><a class="flex flex-col justify-center items-center hover:text-[#b5e3ff] " href="">گالری تصاویر</a></li>
+            <li><a class="flex flex-col justify-center items-center hover:text-[#b5e3ff] " href="">وبلاگ</a></li>
+            <li><a class="flex flex-col justify-center items-center hover:text-[#b5e3ff] " href="">راه های ارتباطی</a></li>
+        </ul>  
+    </div>
+    <div class="flex  p-4">
+        <a href="" class="px-2 group flex flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hover:text-[#b5e3ff]">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+          </svg><span class="p-2 text-sm rounded-lg  bg-[#b5e3ff] text-gray-900 opacity-0 group-hover:opacity-100 transition duration-300">
+            ایمیل
+          </span></a>
+        <a href="" class="px-2 group flex flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hover:text-[#b5e3ff]">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+          </svg><span class="p-2 text-sm rounded-lg  bg-[#b5e3ff] text-gray-900 opacity-0 group-hover:opacity-100 transition duration-300">
+            ارسال پیام
+          </span></a>
+        <a href="" class="px-2 group flex flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hover:text-[#b5e3ff]">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg><span class="p-2 text-sm rounded-lg  bg-[#b5e3ff] text-gray-900 opacity-0 group-hover:opacity-100 transition duration-300">
+            آدرس
+          </span></a>
+        <a href="" class="px-3 group flex flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hover:text-[#b5e3ff]">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+          </svg>
+          <span class="p-2 text-sm rounded-lg  bg-[#b5e3ff] text-gray-900 opacity-0 group-hover:opacity-100 transition duration-300">
+            تماس
+          </span></a>
+
+    </div>
+    <div class="flex gap-4 bg-amber-50 p-4 rounded-2xl">
+        <img src="/afifabadpool/img/namad.png" alt="">
+        <img src="/afifabadpool/img/namad.png" alt="">
+        <img src="/afifabadpool/img/namad.png" alt="">
+    </div>
+    <div >
+        <br>
+        <hr class="w-full">
+        <p class="p-2 font-thin text-lg  ">طراحی توسط x کلیه حقوق محفوط است</p>
+    </div>
+</footer>
+ 
     <!-- JS -->
     <script src="./script/script.js"></script>
+    <script>
+        // وقتی صفحه لود شد
+        document.addEventListener('DOMContentLoaded', function() {
+            var toast = document.getElementById('toast');
+            if (toast) {
+                // نمایش توتیف
+                toast.classList.add('show');
+
+
+                // مخفی کردن بعد از 5 ثانیه
+                setTimeout(function() {
+                    toast.classList.remove('show'); // محو شدن
+                    setTimeout(function() {
+                        toast.remove(); // حذف از DOM بعد از انیمیشن
+                    }, 500); // هم‌زمان با مدت transition
+                }, 2000); // 5 ثانیه نمایش
+            }
+        });
+    </script>
+    
 </body>
 </html>
